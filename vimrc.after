@@ -1,0 +1,110 @@
+" Global options
+set nobackup
+set nowrap
+
+" Colorscheme
+set background=dark
+" colorscheme vimbrant
+
+" Highlight colors
+hi Visual ctermfg=253 ctermbg=25
+hi Search ctermfg=253 ctermbg=162
+hi ColorColumn ctermbg=235
+
+" Set transparent terminal background
+" hi Normal ctermbg=NONE
+
+" Encoding
+set encoding=utf-8
+set fileencodings=ucs-bom,utf-8,latin1
+
+" Mouse reporting
+set mouse=a
+
+" External commands shell
+set shell=/bin/bash
+
+" Show break line symbol
+" http://www.bestofvim.com/tip/better-line-wraps/
+set showbreak=↪
+
+" Highlight 81 column
+"set textwidth=80
+" set colorcolumn=+1
+
+" TagList w/ Exuberant Ctags
+let Tlist_Use_Right_Window=1
+let Tlist_Ctags_Cmd='/usr/local/bin/ctags'
+
+" Enable CakePHP templating files (ctp) typed as PHP files
+au BufNewFile,BufRead *.ctp set filetype=php
+
+" Reselect visual block after indent/outdent
+" http://vimbits.com/bits/20
+vnoremap < <gv
+vnoremap > >gv
+
+" Use <Tab> as <Esc>
+nnoremap <Tab> <Esc>
+vnoremap <Tab> <Esc>gV
+onoremap <Tab> <Esc>
+
+" Use jk as <Esc> (INSERT mode)
+" http://stevelosh.com/blog/2010/09/coming-home-to-vim/
+inoremap jk <Esc>
+
+" Use gh to open actual GitHubFile
+nmap gh :OpenGithubFile<CR><CR>
+
+" Shortcut to write current buffer
+nnoremap <silent> <Leader>w :write<CR>
+
+" Add markup preview
+map <Leader>p :Hammer<CR>
+
+" Vimux keymaps
+" Run the current file with rspec
+map <Leader>rb :call VimuxRunCommand("clear; rspec " . bufname("%"))<CR>
+
+" Prompt for a command to run
+map <Leader>rp :VimuxPromptCommand<CR>
+
+" Run last command executed by VimuxRunCommand
+map <Leader>rl :VimuxRunLastCommand<CR>
+
+" Inspect runner pane
+map <Leader>ri :VimuxInspectRunner<CR>
+
+" Close all other tmux panes in current window
+map <Leader>rx :VimuxClosePanes<CR>
+
+" Close vim tmux runner opened by VimuxRunCommand
+map <Leader>rq :VimuxCloseRunner<CR>
+
+" Interrupt any command running in the runner pane
+map <Leader>rs :VimuxInterruptRunner<CR>
+
+" Ignorelist
+set wildignore+=*/.git/*,*/.hg/*,*/.svn/*,*/.DS_Store,*/tmp/*,*/public/*,*/.orig/*,*/~/,*/.sw[a-z]/*,*/node\_modules/*,*/vendor,./old/*
+"set wildignore+=*/.git/*,*/.hg/*,*/.svn/*,*/.DS_Store,*/tmp/*,*/public/*,*/app/assets/images/*
+
+" CtrlP path mode
+" 0 - don't manage working directory.
+" 1 - the parent directory of the current file.
+" 2 - the nearest ancestor that contains one of these directories or files:
+" .git/ .hg/ .bzr/ _darcs/ root.dir
+let g:ctrlp_working_path_mode = 2
+
+" CtrlP user command
+" Specify an external tool to use for listing files instead of using Vim's
+" globpath()
+let g:ctrlp_user_command = 'find %s -type d -name .git -prune -o -type d -name tmp -prune -o -type d -name .gem -prune -o -type d -name public -prune -o -type f'
+
+" Listing files via ACK
+" let g:ctrlp_user_command = 'ack -f %s --ignore-dir=.git'
+
+set guifont=DejaVu\ Sans\ Mono\ 11
+
+"My custom colors Sergio
+highlight String ctermfg=Red
+highlight Special ctermfg=Red
