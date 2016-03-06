@@ -1,0 +1,8 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =6
+let g:netrw_dirhist_1='/home/bizneo/work/bizneo/old'
+let g:netrw_dirhist_2='/home/bizneo/work/bizneo'
+let g:netrw_dirhist_3='/home/bizneo/work/bizneo/app/controllers/company'
+let g:netrw_dirhist_4='/home/bizneo/work/bizneo'
+let g:netrw_dirhist_5='/home/bizneo'
+let g:netrw_dirhist_6='/home/bizneo/work/bizneo'
